@@ -17,9 +17,33 @@ import { ArrowRight } from 'lucide-react'
 import Autoplay from 'embla-carousel-autoplay'
 import React from 'react'
 import { cn } from '@/lib/utils'
+import useEmblaCarousel from 'embla-carousel-react'
+import {-embla-carousel-fade} from 'embla-carousel-fade'
+
+const heroImages = [
+  {
+    src: 'https://images.stockcake.com/public/9/4/a/94af3b0d-5f6e-4bd1-9ae0-f443c730e878_large/pizza-sharing-friends-stockcake.jpg',
+    alt: 'Friends sharing pizza',
+  },
+  {
+    src: 'https://img.pikbest.com/png-images/20241202/tasty-fresh-beef-burger-with-delicious-cheese-free-png-and-clipart_11160704.png!w700wp',
+    alt: 'A tasty beef burger',
+  },
+  {
+    src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQluGthmBz5hquEjbOhejZdGfoKJBIpLmaYQy9wjGvpz7LYQvwKquzcHxA-QhqMVmTLdj0&usqp=CAU',
+    alt: 'A plate of Jollof rice',
+  },
+  {
+    src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0J6J2Y5Yv-dwmwCmwiqL1-gMN_DDXIcsrQQ&s',
+    alt: 'Banku and Tilapia',
+  },
+  {
+    src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMxDVqD8bdKuan3VZbdiKc8_ORBWP6ZpBNBw&s',
+    alt: 'Fried rice with chicken',
+  },
+]
 
 export default function Home() {
-  const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-pizza')
   const featuredItems = menuItems.filter((item) =>
     [
       'margherita',
@@ -33,20 +57,31 @@ export default function Home() {
     Autoplay({ delay: 2000, stopOnInteraction: true })
   )
 
+  const [emblaRef] = useEmblaCarousel({ loop: true, duration: 50 }, [
+    Autoplay({ delay: 4000, stopOnInteraction: false }),
+    -embla-carousel-fade(),
+  ])
+
   return (
     <div className="flex flex-col gap-16 pb-16 md:gap-24">
       {/* Hero Section */}
       <section className="relative h-[70vh] w-full pt-16 md:h-[60vh] md:pt-24">
-        {heroImage && (
-          <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            fill
-            className="object-cover"
-            priority
-            data-ai-hint={heroImage.imageHint}
-          />
-        )}
+        <div className="overflow-hidden absolute inset-0" ref={emblaRef}>
+            <div className="flex h-full">
+                {heroImages.map((image, index) => (
+                    <div className="relative flex-[0_0_100%] h-full" key={index}>
+                        <Image
+                            src={image.src}
+                            alt={image.alt}
+                            fill
+                            className="object-cover"
+                            priority={index === 0}
+                        />
+                    </div>
+                ))}
+            </div>
+        </div>
+
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center gap-6 px-4 text-center text-white">
           <h1 className={cn("font-headline text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl", "holographic-text")}>
