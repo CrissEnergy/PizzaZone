@@ -1,24 +1,13 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { menuItems } from '@/lib/data'
 import { MenuItemCard } from '@/components/menu/menu-item-card'
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@/components/ui/tabs'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
 
 export default function MenuPage() {
-  const [isClient, setIsClient] = useState(false)
-
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
-
   const categories = [
     'Pizza',
     'Breakfast',
@@ -31,6 +20,11 @@ export default function MenuPage() {
     'Sides',
     'Drinks',
   ]
+  const [selectedCategory, setSelectedCategory] = useState(categories[0])
+
+  const filteredItems = menuItems.filter(
+    (item) => item.category === selectedCategory
+  )
 
   return (
     <div className="container py-8">
@@ -43,46 +37,38 @@ export default function MenuPage() {
         </p>
       </header>
 
-      <Tabs defaultValue="Pizza" className="w-full">
-        <div className="flex justify-center">
-          {isClient ? (
-            <ScrollArea className="w-full max-w-4xl whitespace-nowrap rounded-lg">
-              <TabsList className="grid-cols-auto mx-auto mb-8 grid w-max">
-                {categories.map((category) => (
-                  <TabsTrigger key={category} value={category}>
-                    {category}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </ScrollArea>
-          ) : (
-            <div className="w-full max-w-4xl overflow-x-auto whitespace-nowrap rounded-lg">
-              <TabsList className="grid-cols-auto mx-auto mb-8 grid w-max">
-                {categories.map((category) => (
-                  <TabsTrigger key={category} value={category}>
-                    {category}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </div>
-          )}
-        </div>
-        {categories.map((category) => (
-          <TabsContent key={category} value={category}>
-            <div
-              className={cn(
-                'grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
-              )}
-            >
-              {menuItems
-                .filter((item) => item.category === category)
-                .map((item) => (
-                  <MenuItemCard key={item.id} item={item} />
-                ))}
-            </div>
-          </TabsContent>
+      <div className="mb-8 flex justify-center">
+        <ScrollArea className="w-full max-w-4xl whitespace-nowrap rounded-lg">
+          <div className="mx-auto flex w-max items-center justify-center gap-2 rounded-full border bg-muted p-1">
+            {categories.map((category) => (
+              <Button
+                key={category}
+                variant={selectedCategory === category ? 'default' : 'ghost'}
+                size="sm"
+                className={cn(
+                  'rounded-full',
+                  selectedCategory === category
+                    ? 'bg-primary text-primary-foreground'
+                    : 'text-muted-foreground'
+                )}
+                onClick={() => setSelectedCategory(category)}
+              >
+                {category}
+              </Button>
+            ))}
+          </div>
+        </ScrollArea>
+      </div>
+
+      <div
+        className={cn(
+          'grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+        )}
+      >
+        {filteredItems.map((item) => (
+          <MenuItemCard key={item.id} item={item} />
         ))}
-      </Tabs>
+      </div>
     </div>
   )
 }
