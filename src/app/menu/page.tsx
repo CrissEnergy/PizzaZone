@@ -1,3 +1,6 @@
+'use client'
+
+import { useState, useEffect } from 'react'
 import { menuItems } from '@/lib/data'
 import { MenuItemCard } from '@/components/menu/menu-item-card'
 import {
@@ -10,6 +13,12 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 import { cn } from '@/lib/utils'
 
 export default function MenuPage() {
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   const categories = [
     'Pizza',
     'Breakfast',
@@ -36,15 +45,27 @@ export default function MenuPage() {
 
       <Tabs defaultValue="Pizza" className="w-full">
         <div className="flex justify-center">
-          <ScrollArea className="w-full max-w-4xl whitespace-nowrap rounded-lg">
-            <TabsList className="grid-cols-auto mx-auto mb-8 grid w-max">
-              {categories.map((category) => (
-                <TabsTrigger key={category} value={category}>
-                  {category}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </ScrollArea>
+          {isClient ? (
+            <ScrollArea className="w-full max-w-4xl whitespace-nowrap rounded-lg">
+              <TabsList className="grid-cols-auto mx-auto mb-8 grid w-max">
+                {categories.map((category) => (
+                  <TabsTrigger key={category} value={category}>
+                    {category}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </ScrollArea>
+          ) : (
+            <div className="w-full max-w-4xl overflow-x-auto whitespace-nowrap rounded-lg">
+              <TabsList className="grid-cols-auto mx-auto mb-8 grid w-max">
+                {categories.map((category) => (
+                  <TabsTrigger key={category} value={category}>
+                    {category}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
+          )}
         </div>
         {categories.map((category) => (
           <TabsContent key={category} value={category}>
