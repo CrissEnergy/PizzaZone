@@ -19,12 +19,15 @@ import React from 'react'
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-pizza')
-  const featuredPizzas = menuItems.filter(
-    (item) =>
-      item.category === 'Pizza' &&
-      ['margherita', 'pepperoni', 'veggie-deluxe', 'hawaiian'].includes(item.id)
+  const featuredItems = menuItems.filter((item) =>
+    [
+      'margherita',
+      'jollof-chicken',
+      'classic-burger',
+      'banku-tilapia',
+    ].includes(item.id)
   )
-  
+
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   )
@@ -50,7 +53,7 @@ export default function Home() {
           </h1>
           <p className="max-w-2xl font-body text-lg text-neutral-200 md:text-xl">
             Authentic flavors, fresh ingredients, and speedy delivery. Your
-            perfect pizza is just a click away.
+            perfect meal is just a click away.
           </p>
           <Button asChild size="lg" className="font-bold">
             <Link href="/menu">
@@ -64,7 +67,7 @@ export default function Home() {
       <section className="w-full">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="mb-8 text-center font-headline text-3xl font-bold tracking-tight md:text-4xl">
-            Our Featured Pizzas
+            Our Featured Items
           </h2>
           <Carousel
             plugins={[plugin.current]}
@@ -77,7 +80,7 @@ export default function Home() {
             onMouseLeave={plugin.current.reset}
           >
             <CarouselContent>
-              {featuredPizzas.map((item) => (
+              {featuredItems.map((item) => (
                 <CarouselItem
                   key={item.id}
                   className="md:basis-1/2 lg:basis-1/3"

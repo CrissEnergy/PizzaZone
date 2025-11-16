@@ -15,7 +15,17 @@ export type MenuItem = {
   name: string
   description: string
   price: number
-  category: 'Pizza' | 'Sides' | 'Drinks'
+  category:
+    | 'Pizza'
+    | 'Sides'
+    | 'Drinks'
+    | 'Breakfast'
+    | 'Jollof Rice'
+    | 'Fried Rice'
+    | 'Wings'
+    | 'Burgers'
+    | 'French Fries/Chips'
+    | 'Banku & Tilapia'
   imageId: string
   isCustomizable: boolean
 }
@@ -64,7 +74,7 @@ export const menuItems: MenuItem[] = [
     description: 'Onions, green peppers, mushrooms, and black olives',
     price: 18.99,
     category: 'Pizza',
-imageId: 'veggie-deluxe-pizza',
+    imageId: 'veggie-deluxe-pizza',
     isCustomizable: true,
   },
   {
@@ -104,15 +114,6 @@ imageId: 'veggie-deluxe-pizza',
     imageId: 'garlic-bread',
     isCustomizable: false,
   },
-  {
-    id: 'chicken-wings',
-    name: 'Chicken Wings',
-    description: 'Spicy and tangy chicken wings, served with blue cheese dip',
-    price: 9.99,
-    category: 'Sides',
-    imageId: 'chicken-wings',
-    isCustomizable: false,
-  },
   // Drinks
   {
     id: 'soda',
@@ -130,6 +131,125 @@ imageId: 'veggie-deluxe-pizza',
     price: 2.0,
     category: 'Drinks',
     imageId: 'water-bottle',
+    isCustomizable: false,
+  },
+  // New Items
+  {
+    id: 'english-breakfast',
+    name: 'Full English Breakfast',
+    description: 'Sausages, bacon, eggs, beans, tomatoes, and toast',
+    price: 25.0,
+    category: 'Breakfast',
+    imageId: 'english-breakfast',
+    isCustomizable: false,
+  },
+  {
+    id: 'jollof-plain',
+    name: 'Jollof Rice (Plain)',
+    description: 'Smoky and flavorful West African style rice',
+    price: 15.0,
+    category: 'Jollof Rice',
+    imageId: 'jollof-rice',
+    isCustomizable: false,
+  },
+  {
+    id: 'jollof-chicken',
+    name: 'Jollof Rice with Chicken',
+    description: 'Smoky jollof rice served with seasoned grilled chicken',
+    price: 25.0,
+    category: 'Jollof Rice',
+    imageId: 'jollof-chicken',
+    isCustomizable: false,
+  },
+  {
+    id: 'fried-rice-plain',
+    name: 'Fried Rice (Plain)',
+    description: 'Classic fried rice with mixed vegetables',
+    price: 15.0,
+    category: 'Fried Rice',
+    imageId: 'fried-rice',
+    isCustomizable: false,
+  },
+  {
+    id: 'fried-rice-chicken',
+    name: 'Fried Rice with Chicken',
+    description: 'Fried rice with mixed vegetables and grilled chicken',
+    price: 25.0,
+    category: 'Fried Rice',
+    imageId: 'fried-rice-chicken',
+    isCustomizable: false,
+  },
+  {
+    id: 'hot-wings',
+    name: 'Hot Wings',
+    description: 'Spicy chicken wings, served with your choice of dip',
+    price: 30.0,
+    category: 'Wings',
+    imageId: 'hot-wings',
+    isCustomizable: false,
+  },
+  {
+    id: 'bbq-wings',
+    name: 'BBQ Wings',
+    description: 'Sweet and smoky BBQ chicken wings',
+    price: 30.0,
+    category: 'Wings',
+    imageId: 'bbq-wings',
+    isCustomizable: false,
+  },
+  {
+    id: 'classic-burger',
+    name: 'Classic Beef Burger',
+    description: 'Juicy beef patty with lettuce, tomato, and our special sauce',
+    price: 28.0,
+    category: 'Burgers',
+    imageId: 'classic-burger',
+    isCustomizable: false,
+  },
+  {
+    id: 'chicken-burger',
+    name: 'Chicken Burger',
+    description: 'Crispy chicken fillet with mayo and lettuce',
+    price: 25.0,
+    category: 'Burgers',
+    imageId: 'chicken-burger',
+    isCustomizable: false,
+  },
+  {
+    id: 'french-fries',
+    name: 'French Fries',
+    description: 'Golden and crispy potato fries',
+    price: 10.0,
+    category: 'French Fries/Chips',
+    imageId: 'french-fries',
+    isCustomizable: false,
+  },
+  {
+    id: 'yam-chips',
+    name: 'Yam Chips',
+    description: 'Crispy fried yam chips, a local favorite',
+    price: 12.0,
+    category: 'French Fries/Chips',
+    imageId: 'yam-chips',
+    isCustomizable: false,
+  },
+  {
+    id: 'banku-tilapia',
+    name: 'Banku & Tilapia',
+    description:
+      'Grilled tilapia served with banku, shito, and fresh pepper sauce',
+    price: 45.0,
+    category: 'Banku & Tilapia',
+    imageId: 'banku-tilapia',
+    isCustomizable: false,
+  },
+  {
+    id: 'fruit-juice',
+    name: 'Fresh Fruit Juice',
+    description: 'A blend of seasonal fresh fruits',
+    price: 10.0,
+    category: 'Drinks',
+    imageId: 'fruit-juice',
     isCustomizable: false,
   },
 ]

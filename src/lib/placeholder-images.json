@@ -77,6 +77,84 @@
       "description": "A person on a phone in a restaurant setting.",
       "imageUrl": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjdXN0b21lciUyMHNlcnZpY2V8ZW58MHx8fHwxNzYzMjI1NTE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "customer service"
+    },
+    {
+      "id": "english-breakfast",
+      "description": "A full english breakfast with sausages, bacon, eggs, beans, tomatoes, and toast.",
+      "imageUrl": "https://images.unsplash.com/photo-1588625436591-c6d853288b60?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxlbmdsaXNoJTIwYnJlYWtmYXN0fGVufDB8fHx8MTc2MzI5NjczMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "english breakfast"
+    },
+    {
+      "id": "jollof-rice",
+      "description": "A plate of Jollof rice.",
+      "imageUrl": "https://images.unsplash.com/photo-1665332195309-9d75071138f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxqb2xsb2YlMjByaWNlfGVufDB8fHx8MTc2MzMwODUyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "jollof rice"
+    },
+    {
+      "id": "jollof-chicken",
+      "description": "A plate of Jollof rice with chicken.",
+      "imageUrl": "https://images.unsplash.com/photo-1665333048952-a3ee97714c6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxqb2xsb2YlMjBjaGlja2VufGVufDB8fHx8MTc2MzMyODgxNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "jollof chicken"
+    },
+    {
+      "id": "fried-rice",
+      "description": "A plate of fried rice.",
+      "imageUrl": "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmcmllZCUyMHJpY2V8ZW58MHx8fHwxNzYzMzI4ODE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fried rice"
+    },
+    {
+      "id": "fried-rice-chicken",
+      "description": "A plate of fried rice with chicken.",
+      "imageUrl": "https://images.unsplash.com/photo-1696340034863-f98636525e9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZnJpZWQlMjByaWNlJTIwY2hpY2tlbnxlbnwwfHx8fDE3NjMzMjg4MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fried rice chicken"
+    },
+    {
+      "id": "hot-wings",
+      "description": "A plate of spicy hot wings.",
+      "imageUrl": "https://images.unsplash.com/photo-1611698529138-c5968262a080?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxob3QlMjB3aW5nc3xlbnwwfHx8fDE3NjMzMjg4MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hot wings"
+    },
+    {
+      "id": "bbq-wings",
+      "description": "A plate of barbecue wings.",
+      "imageUrl": "https://images.unsplash.com/photo-1648141643305-efb7d2542602?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxiYnElMjB3aW5nc3xlbnwwfHx8fDE3NjMzMjg4MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bbq wings"
+    },
+    {
+      "id": "classic-burger",
+      "description": "A classic beef burger.",
+      "imageUrl": "https://images.unsplash.com/photo-1607013251379-e6eecfffe234?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxiZWVmJTIwYnVyZ2VyfGVufDB8fHx8MTc2MzI2Njg1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "beef burger"
+    },
+    {
+      "id": "chicken-burger",
+      "description": "A chicken burger.",
+      "imageUrl": "https://images.unsplash.com/photo-1692737349870-e3bfc704ebf9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjaGlja2VuJTIwYnVyZ2VyfGVufDB8fHx8MTc2MzMyODgxNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chicken burger"
+    },
+    {
+      "id": "french-fries",
+      "description": "A portion of french fries.",
+      "imageUrl": "https://images.unsplash.com/photo-1598998834333-c0b91bc9b2a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxmcmVuY2glMjBmcmllc3xlbnwwfHx8fDE3NjMzMjM3MTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "french fries"
+    },
+    {
+      "id": "yam-chips",
+      "description": "A portion of yam chips.",
+      "imageUrl": "https://images.unsplash.com/photo-1647764430080-6000fbe7efee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx5YW0lMjBjaGlwc3xlbnwwfHx8fDE3NjMzMjg4MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "yam chips"
+    },
+    {
+      "id": "banku-tilapia",
+      "description": "A plate of banku with tilapia.",
+      "imageUrl": "https://images.unsplash.com/photo-1707872387128-7ddce34bfd86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxiYW5rdSUyMHRpbGFwaWF8ZW58MHx8fHwxNzYzMzI4ODE3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "banku tilapia"
+    },
+    {
+      "id": "fruit-juice",
+      "description": "A glass of fresh fruit juice.",
+      "imageUrl": "https://images.unsplash.com/photo-1603569283847-aa295f0d016a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmcnVpdCUyMGp1aWNlfGVufDB8fHx8MTc2MzMwMjY2MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fruit juice"
     }
   ]
 }
