@@ -15,6 +15,7 @@ import {
   SheetClose,
   SheetTitle,
 } from '@/components/ui/sheet'
+import { LiveSearch } from '../search/live-search'
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -28,11 +29,13 @@ export function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 md:top-4 md:w-[95%] w-full md:mx-auto max-w-7xl">
-      <div className="container flex h-16 items-center md:rounded-[20px] border-b md:border border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full md:top-4 md:mx-auto md:w-[95%] max-w-7xl">
+      <div className="container flex h-16 items-center border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:rounded-[20px] md:border">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Pizza className="h-6 w-6 text-primary" />
-          <span className="font-headline text-xl font-bold">Pizza Zone</span>
+          <span className="hidden font-headline text-xl font-bold sm:inline-block">
+            Pizza Zone
+          </span>
         </Link>
         <nav className="hidden gap-6 md:flex">
           {navLinks.map((link) => (
@@ -41,7 +44,9 @@ export function Header() {
               href={link.href}
               className={cn(
                 'text-sm font-medium transition-colors hover:text-primary',
-                pathname === link.href ? 'text-primary' : 'text-muted-foreground'
+                pathname === link.href
+                  ? 'text-primary'
+                  : 'text-muted-foreground'
               )}
             >
               {link.label}
@@ -49,6 +54,9 @@ export function Header() {
           ))}
         </nav>
         <div className="flex flex-1 items-center justify-end gap-2">
+          <div className="hidden md:block">
+            <LiveSearch />
+          </div>
           <CartButton />
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
@@ -58,14 +66,23 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left">
-              <SheetTitle className="sr-only">Menu</SheetTitle>
+              <SheetTitle>Menu</SheetTitle>
               <div className="flex flex-col gap-8 pt-8">
-                <Link href="/" className="mr-6 flex items-center space-x-2" onClick={() => setIsSheetOpen(false)}>
+                <Link
+                  href="/"
+                  className="mr-6 flex items-center space-x-2"
+                  onClick={() => setIsSheetOpen(false)}
+                >
                   <Pizza className="h-6 w-6 text-primary" />
                   <span className="font-headline text-xl font-bold">
                     Pizza Zone
                   </span>
                 </Link>
+
+                <div className="mb-4">
+                  <LiveSearch />
+                </div>
+
                 <nav className="flex flex-col gap-4">
                   {navLinks.map((link) => (
                     <SheetClose key={link.href} asChild>

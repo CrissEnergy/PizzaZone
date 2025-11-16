@@ -2,7 +2,13 @@
 
 import { ShoppingCart } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Sheet, SheetTrigger } from '@/components/ui/sheet'
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+} from '@/components/ui/sheet'
 import { CartSheet } from '@/components/cart-sheet'
 import { useCart } from '@/contexts/cart-context'
 
