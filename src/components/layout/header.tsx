@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { Pizza, Menu } from 'lucide-react'
 import { usePathname } from 'next/navigation'
+import { useState } from 'react'
 
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
@@ -23,10 +24,11 @@ const navLinks = [
 
 export function Header() {
   const pathname = usePathname()
+  const [isSheetOpen, setIsSheetOpen] = useState(false)
 
   return (
-    <header className="sticky top-4 z-50 mx-auto w-[95%] max-w-7xl">
-      <div className="container flex h-16 items-center rounded-[20px] border border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 md:top-4 md:w-[95%] w-full md:mx-auto max-w-7xl">
+      <div className="container flex h-16 items-center md:rounded-[20px] border-b md:border border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Pizza className="h-6 w-6 text-primary" />
           <span className="font-headline text-xl font-bold">Pizza Zone</span>
@@ -47,7 +49,7 @@ export function Header() {
         </nav>
         <div className="flex flex-1 items-center justify-end gap-2">
           <CartButton />
-          <Sheet>
+          <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
                 <Menu className="h-5 w-5" />
@@ -56,7 +58,7 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="left">
               <div className="flex flex-col gap-8 pt-8">
-                <Link href="/" className="mr-6 flex items-center space-x-2">
+                <Link href="/" className="mr-6 flex items-center space-x-2" onClick={() => setIsSheetOpen(false)}>
                   <Pizza className="h-6 w-6 text-primary" />
                   <span className="font-headline text-xl font-bold">
                     Pizza Zone
@@ -73,6 +75,7 @@ export function Header() {
                             ? 'text-primary'
                             : 'text-foreground'
                         )}
+                        onClick={() => setIsSheetOpen(false)}
                       >
                         {link.label}
                       </Link>

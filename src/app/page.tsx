@@ -34,9 +34,9 @@ export default function Home() {
   )
 
   return (
-    <div className="flex flex-col gap-16 md:gap-24">
+    <div className="flex flex-col gap-16 pb-16 md:gap-24">
       {/* Hero Section */}
-      <section className="relative h-[60vh] w-full pt-16 md:pt-24">
+      <section className="relative h-[70vh] w-full pt-16 md:h-[60vh] md:pt-24">
         {heroImage && (
           <Image
             src={heroImage.imageUrl}
@@ -47,12 +47,12 @@ export default function Home() {
             data-ai-hint={heroImage.imageHint}
           />
         )}
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center gap-6 px-4 text-center text-white">
-          <h1 className={cn("font-headline text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl", "holographic-text")}>
+          <h1 className={cn("font-headline text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl", "holographic-text")}>
             Flavor for Every Moment
           </h1>
-          <p className="max-w-2xl font-body text-lg text-neutral-200 md:text-xl">
+          <p className="max-w-2xl font-body text-base text-neutral-200 sm:text-lg md:text-xl">
             From sizzling pizzas to hearty local dishes, discover authentic flavors and fresh ingredients. Your perfect meal is just a click away.
           </p>
           <Button asChild size="lg" className="font-bold">
@@ -65,7 +65,7 @@ export default function Home() {
 
       {/* Featured Items Section */}
       <section className="w-full">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="container px-4 sm:px-6">
           <h2 className="mb-8 text-center font-headline text-3xl font-bold tracking-tight md:text-4xl">
             Our Featured Items
           </h2>
@@ -79,11 +79,11 @@ export default function Home() {
             onMouseEnter={plugin.current.stop}
             onMouseLeave={plugin.current.reset}
           >
-            <CarouselContent>
+            <CarouselContent className="-ml-2">
               {featuredItems.map((item) => (
                 <CarouselItem
                   key={item.id}
-                  className="md:basis-1/2 lg:basis-1/3"
+                  className="basis-full pl-4 sm:basis-1/2 md:basis-1/2 lg:basis-1/3"
                 >
                   <div className="p-1">
                     <MenuItemCard item={item} />
@@ -91,13 +91,11 @@ export default function Home() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="ml-12" />
-            <CarouselNext className="mr-12" />
+            <CarouselPrevious className="ml-12 hidden sm:flex" />
+            <CarouselNext className="mr-12 hidden sm:flex" />
           </Carousel>
         </div>
       </section>
     </div>
   )
 }
-
-    

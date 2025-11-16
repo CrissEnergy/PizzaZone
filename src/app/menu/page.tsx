@@ -44,14 +44,14 @@ export default function MenuPage() {
 
       <div className="mb-8 flex justify-center">
         {isClient && (
-          <ScrollArea className="w-full max-w-4xl whitespace-nowrap rounded-lg">
+          <ScrollArea className="w-full max-w-full whitespace-nowrap rounded-lg pb-4">
             <div className="mx-auto flex w-max items-center justify-center rounded-full border bg-muted p-1">
               {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
                   className={cn(
-                    'relative rounded-full px-4 py-1.5 text-sm font-medium text-muted-foreground transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
+                    'relative rounded-full px-3 py-1.5 text-sm sm:px-4 sm:py-2 font-medium text-muted-foreground transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
                     {
                       'text-primary-foreground': selectedCategory === category,
                     }
