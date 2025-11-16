@@ -1,0 +1,66 @@
+import Link from 'next/link'
+import { Pizza, Facebook, Twitter, Instagram } from 'lucide-react'
+
+export function Footer() {
+  return (
+    <footer className="mt-auto border-t">
+      <div className="container py-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="flex flex-col items-start gap-4">
+            <Link href="/" className="flex items-center space-x-2">
+              <Pizza className="h-6 w-6 text-primary" />
+              <span className="font-headline text-xl font-bold">
+                Pizza Zone
+              </span>
+            </Link>
+            <p className="text-sm text-muted-foreground">
+              Pizza Zone & Restaurant, Ash. Mampong. <br />
+              The best pizza in town, made with love.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-8 md:col-span-2 md:grid-cols-3">
+            <div>
+              <h3 className="font-headline font-semibold">Quick Links</h3>
+              <ul className="mt-4 space-y-2 text-sm">
+                <li>
+                  <Link href="/menu" className="text-muted-foreground hover:text-primary">Menu</Link>
+                </li>
+                <li>
+                  <Link href="/order" className="text-muted-foreground hover:text-primary">Order Online</Link>
+                </li>
+                <li>
+                  <Link href="/about" className="text-muted-foreground hover:text-primary">About Us</Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-headline font-semibold">Contact</h3>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                <li>+233 12 345 6789</li>
+                <li>contact@pizzazone.com</li>
+                <li>Mampong, Ashanti, Ghana</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-headline font-semibold">Follow Us</h3>
+              <div className="mt-4 flex space-x-4">
+                <Link href="#" className="text-muted-foreground hover:text-primary">
+                  <Facebook className="h-5 w-5" />
+                </Link>
+                <Link href="#" className="text-muted-foreground hover:text-primary">
+                  <Twitter className="h-5 w-5" />
+                </Link>
+                <Link href="#" className="text-muted-foreground hover:text-primary">
+                  <Instagram className="h-5 w-5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="mt-8 border-t pt-4 text-center text-sm text-muted-foreground">
+          © {new Date().getFullYear()} Pizza Zone. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  )
+}

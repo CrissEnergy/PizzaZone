@@ -1,3 +1,82 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-pizza",
+      "description": "A delicious pizza on a table, served as a hero image.",
+      "imageUrl": "https://images.unsplash.com/photo-1494346480775-936a9f0d0877?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwaXp6YSUyMHJlc3RhdXJhbnR8ZW58MHx8fHwxNzYzMjM5MzEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pizza restaurant"
+    },
+    {
+      "id": "margherita-pizza",
+      "description": "A classic Margherita pizza.",
+      "imageUrl": "https://images.unsplash.com/photo-1573821663912-6df460f9c684?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtYXJnaGVyaXRhJTIwcGl6emF8ZW58MHx8fHwxNzYzMzA0MTE5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "margherita pizza"
+    },
+    {
+      "id": "pepperoni-pizza",
+      "description": "A classic pepperoni pizza.",
+      "imageUrl": "https://images.unsplash.com/photo-1602658014714-26b99d5a45cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwZXBwZXJvbmklMjBwaXp6YXxlbnwwfHx8fDE3NjMyNTk4Nzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pepperoni pizza"
+    },
+    {
+      "id": "veggie-deluxe-pizza",
+      "description": "A veggie deluxe pizza with various vegetables.",
+      "imageUrl": "https://images.unsplash.com/photo-1615595190084-c048920f5b03?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx2ZWdldGFyaWFuJTIwcGl6emF8ZW58MHx8fHwxNzYzMjU5ODc5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "vegetarian pizza"
+    },
+    {
+      "id": "hawaiian-pizza",
+      "description": "A hawaiian pizza with pineapple and ham.",
+      "imageUrl": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxoYXdhaWlhbiUyMHBpenphfGVufDB8fHx8MTc2MzMwNDExOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hawaiian pizza"
+    },
+    {
+      "id": "bbq-chicken-pizza",
+      "description": "A BBQ chicken pizza.",
+      "imageUrl": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjaGlja2VuJTIwcGl6emF8ZW58MHx8fHwxNzYzMjQyODIyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chicken pizza"
+    },
+    {
+      "id": "supreme-pizza",
+      "description": "A supreme pizza with all the toppings.",
+      "imageUrl": "https://images.unsplash.com/photo-1575150741130-fd1529c52913?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzdXByZW1lJTIwcGl6emF8ZW58MHx8fHwxNzYzMzI2OTYwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "supreme pizza"
+    },
+    {
+      "id": "garlic-bread",
+      "description": "Cheesy garlic bread sticks.",
+      "imageUrl": "https://images.unsplash.com/photo-1619531040576-f9416740661b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxnYXJsaWMlMjBicmVhZHxlbnwwfHx8fDE3NjMzMjY5NjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "garlic bread"
+    },
+    {
+      "id": "chicken-wings",
+      "description": "Spicy chicken wings.",
+      "imageUrl": "https://images.unsplash.com/photo-1624153064067-566cae78993d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjaGlja2VuJTIwd2luZ3N8ZW58MHx8fHwxNzYzMjY2MTc4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chicken wings"
+    },
+    {
+      "id": "soda-can",
+      "description": "A can of soda.",
+      "imageUrl": "https://images.unsplash.com/photo-1603569239784-0a4b159fa3dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzb2RhJTIwY2FufGVufDB8fHx8MTc2MzI3ODgzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "soda can"
+    },
+    {
+      "id": "water-bottle",
+      "description": "A bottle of water.",
+      "imageUrl": "https://images.unsplash.com/photo-1616118132534-381148898bb4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3YXRlciUyMGJvdHRsZXxlbnwwfHx8fDE3NjMyNTExODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "water bottle"
+    },
+    {
+      "id": "about-us",
+      "description": "Interior of the Pizza Zone restaurant.",
+      "imageUrl": "https://images.unsplash.com/photo-1651981054670-0752d6144f39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwaXp6YSUyMHJlc3RhdXJhbnQlMjBpbnRlcmlvcnxlbnwwfHx8fDE3NjMzMjY5NjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pizza restaurant interior"
+    },
+    {
+      "id": "contact-us",
+      "description": "A person on a phone in a restaurant setting.",
+      "imageUrl": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjdXN0b21lciUyMHNlcnZpY2V8ZW58MHx8fHwxNzYzMjI1NTE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "customer service"
+    }
+  ]
 }
