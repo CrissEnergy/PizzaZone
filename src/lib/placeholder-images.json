@@ -37,12 +37,10 @@
       "imageHint": "chicken pizza"
     },
     {
-      "id": "supreme",
-      "description": "Pepperoni, sausage, onions, peppers, and mushrooms",
-      "price": 22.99,
-      "category": "Pizza",
-      "imageId": "supreme-pizza",
-      "isCustomizable": true
+      "id": "supreme-pizza",
+      "description": "A supreme pizza with all the toppings.",
+      "imageUrl": "https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzdXByZW1lJTIwcGl6emF8ZW58MHx8fHwxNzYzMzI2OTYwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "supreme pizza"
     },
     {
       "id": "garlic-bread",
@@ -160,4 +158,3 @@
     }
   ]
 }
-    
