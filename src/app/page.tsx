@@ -16,6 +16,7 @@ import { MenuItemCard } from '@/components/menu/menu-item-card'
 import { ArrowRight } from 'lucide-react'
 import Autoplay from 'embla-carousel-autoplay'
 import React from 'react'
+import { cn } from '@/lib/utils'
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-pizza')
@@ -48,7 +49,7 @@ export default function Home() {
         )}
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center gap-6 px-4 text-center text-white">
-          <h1 className="font-headline text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
+          <h1 className={cn("font-headline text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl", "holographic-text")}>
             Flavor for Every Moment
           </h1>
           <p className="max-w-2xl font-body text-lg text-neutral-200 md:text-xl">
@@ -98,3 +99,5 @@ export default function Home() {
     </div>
   )
 }
+
+    

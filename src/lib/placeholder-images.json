@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-pizza",
-      "description": "A delicious pizza on a table, served as a hero image.",
-      "imageUrl": "https://images.unsplash.com/photo-1494346480775-936a9f0d0877?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwaXp6YSUyMHJlc3RhdXJhbnR8ZW58MHx8fHwxNzYzMjM5MzEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "pizza restaurant"
+      "description": "The interior of a modern restaurant.",
+      "imageUrl": "https://t3.ftcdn.net/jpg/06/27/23/56/360_F_627235669_iz0O2leKYRzjxAKdFP7odpp9eCOZREtN.jpg",
+      "imageHint": "restaurant interior"
     },
     {
       "id": "margherita-pizza",
@@ -37,10 +37,12 @@
       "imageHint": "chicken pizza"
     },
     {
-      "id": "supreme-pizza",
-      "description": "A supreme pizza with all the toppings.",
-      "imageUrl": "https://images.unsplash.com/photo-1575150741130-fd1529c52913?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzdXByZW1lJTIwcGl6emF8ZW58MHx8fHwxNzYzMzI2OTYwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "supreme pizza"
+      "id": "supreme",
+      "description": "Pepperoni, sausage, onions, peppers, and mushrooms",
+      "price": 22.99,
+      "category": "Pizza",
+      "imageId": "supreme-pizza",
+      "isCustomizable": true
     },
     {
       "id": "garlic-bread",
@@ -158,3 +160,4 @@
     }
   ]
 }
+    
