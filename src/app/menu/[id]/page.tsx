@@ -13,6 +13,15 @@ import { useToast } from '@/hooks/use-toast'
 import { CustomPizzaDialog } from '@/components/menu/custom-pizza-dialog'
 import { MenuItemCard } from '@/components/menu/menu-item-card'
 import { ArrowLeft, Plus } from 'lucide-react'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
+import Autoplay from 'embla-carousel-autoplay'
+import React from 'react'
 
 export default function MenuItemDetailPage() {
   const params = useParams()
@@ -21,6 +30,13 @@ export default function MenuItemDetailPage() {
   const { toast } = useToast()
 
   const item = menuItems.find((item) => item.id === id)
+
+  const relatedFoodsPlugin = React.useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true })
+  )
+  const drinksPlugin = React.useRef(
+    Autoplay({ delay: 3500, stopOnInteraction: true })
+  )
 
   if (!item) {
     notFound()
@@ -31,11 +47,11 @@ export default function MenuItemDetailPage() {
   const relatedFoods = menuItems.filter(
     (relatedItem) =>
       relatedItem.category === item.category && relatedItem.id !== item.id
-  ).slice(0, 4)
+  )
 
   const suggestedDrinks = menuItems.filter(
     (drinkItem) => drinkItem.category === 'Drinks'
-  ).slice(0, 4)
+  )
 
   const handleAddToCart = () => {
     addItem(item)
@@ -47,14 +63,14 @@ export default function MenuItemDetailPage() {
 
   return (
     <div className="container py-12 md:py-16">
-       <div className="mb-8">
+      <div className="mb-8">
         <Button variant="ghost" asChild>
-            <Link href="/menu">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Menu
-            </Link>
+          <Link href="/menu">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Menu
+          </Link>
         </Button>
-    </div>
+      </div>
       <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
         <div>
           {image && (
@@ -95,11 +111,28 @@ export default function MenuItemDetailPage() {
           <h2 className="mb-8 text-center font-headline text-3xl font-bold">
             Related Dishes
           </h2>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {relatedFoods.map((relatedItem) => (
-              <MenuItemCard key={relatedItem.id} item={relatedItem} />
-            ))}
-          </div>
+          <Carousel
+            plugins={[relatedFoodsPlugin.current]}
+            opts={{ align: 'start', loop: true }}
+            className="w-full"
+            onMouseEnter={relatedFoodsPlugin.current.stop}
+            onMouseLeave={relatedFoodsPlugin.current.reset}
+          >
+            <CarouselContent className="-ml-2">
+              {relatedFoods.map((relatedItem) => (
+                <CarouselItem
+                  key={relatedItem.id}
+                  className="basis-full pl-4 sm:basis-1/2 lg:basis-1/4"
+                >
+                  <div className="p-1">
+                    <MenuItemCard item={relatedItem} />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="ml-12 hidden sm:flex" />
+            <CarouselNext className="mr-12 hidden sm:flex" />
+          </Carousel>
         </div>
       )}
 
@@ -108,11 +141,28 @@ export default function MenuItemDetailPage() {
           <h2 className="mb-8 text-center font-headline text-3xl font-bold">
             Goes Great With
           </h2>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {suggestedDrinks.map((drinkItem) => (
-              <MenuItemCard key={drinkItem.id} item={drinkItem} />
-            ))}
-          </div>
+          <Carousel
+            plugins={[drinksPlugin.current]}
+            opts={{ align: 'start', loop: true }}
+            className="w-full"
+            onMouseEnter={drinksPlugin.current.stop}
+            onMouseLeave={drinksPlugin.current.reset}
+          >
+            <CarouselContent className="-ml-2">
+              {suggestedDrinks.map((drinkItem) => (
+                <CarouselItem
+                  key={drinkItem.id}
+                  className="basis-full pl-4 sm:basis-1/2 lg:basis-1/4"
+                >
+                  <div className="p-1">
+                    <MenuItemCard item={drinkItem} />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="ml-12 hidden sm:flex" />
+            <CarouselNext className="mr-12 hidden sm:flex" />
+          </Carousel>
         </div>
       )}
     </div>
