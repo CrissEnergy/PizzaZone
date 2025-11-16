@@ -11,7 +11,6 @@ import {
 } from '@/components/ui/carousel'
 import { menuItems } from '@/lib/data'
 import { MenuItemCard } from '@/components/menu/menu-item-card'
-import { Recommendations } from '@/components/ai/recommendations'
 import { ArrowRight } from 'lucide-react'
 
 export default function Home() {
@@ -81,19 +80,6 @@ export default function Home() {
             <CarouselPrevious className="ml-12" />
             <CarouselNext className="mr-12" />
           </Carousel>
-        </div>
-      </section>
-      
-      {/* AI Recommendations Section */}
-      <section className="w-full bg-card/50 py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4">
-           <h2 className="mb-2 text-center font-headline text-3xl font-bold tracking-tight md:text-4xl">
-            Just For You
-          </h2>
-          <p className="mb-8 text-center text-muted-foreground">
-            AI-powered recommendations based on popular choices.
-          </p>
-          <Recommendations />
         </div>
       </section>
     </div>
