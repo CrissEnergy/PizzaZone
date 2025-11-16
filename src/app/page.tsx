@@ -49,11 +49,10 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center gap-6 px-4 text-center text-white">
           <h1 className="font-headline text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
-            Slice into Happiness
+            Flavor for Every Moment
           </h1>
           <p className="max-w-2xl font-body text-lg text-neutral-200 md:text-xl">
-            Authentic flavors, fresh ingredients, and speedy delivery. Your
-            perfect meal is just a click away.
+            From sizzling pizzas to hearty local dishes, discover authentic flavors and fresh ingredients. Your perfect meal is just a click away.
           </p>
           <Button asChild size="lg" className="font-bold">
             <Link href="/menu">

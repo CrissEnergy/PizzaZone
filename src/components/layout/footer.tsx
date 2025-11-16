@@ -15,7 +15,7 @@ export function Footer() {
             </Link>
             <p className="text-sm text-muted-foreground">
               Pizza Zone & Restaurant, Ash. Mampong. <br />
-              The best pizza in town, made with love.
+              The best food in town, made with love.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-8 md:col-span-2 md:grid-cols-3">
