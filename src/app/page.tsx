@@ -18,7 +18,7 @@ import Autoplay from 'embla-carousel-autoplay'
 import React from 'react'
 import { cn } from '@/lib/utils'
 import useEmblaCarousel from 'embla-carousel-react'
-import {-embla-carousel-fade} from 'embla-carousel-fade'
+import EmblaCarouselFade from 'embla-carousel-fade'
 
 const heroImages = [
   {
@@ -59,7 +59,7 @@ export default function Home() {
 
   const [emblaRef] = useEmblaCarousel({ loop: true, duration: 50 }, [
     Autoplay({ delay: 4000, stopOnInteraction: false }),
-    -embla-carousel-fade(),
+    EmblaCarouselFade(),
   ])
 
   return (
