@@ -13,6 +13,7 @@ import {
   SheetContent,
   SheetTrigger,
   SheetClose,
+  SheetTitle,
 } from '@/components/ui/sheet'
 
 const navLinks = [
@@ -57,6 +58,7 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left">
+              <SheetTitle className="sr-only">Menu</SheetTitle>
               <div className="flex flex-col gap-8 pt-8">
                 <Link href="/" className="mr-6 flex items-center space-x-2" onClick={() => setIsSheetOpen(false)}>
                   <Pizza className="h-6 w-6 text-primary" />
