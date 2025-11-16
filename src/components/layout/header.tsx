@@ -25,8 +25,8 @@ export function Header() {
   const pathname = usePathname()
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center">
+    <header className="sticky top-4 z-50 mx-auto w-[95%] max-w-7xl">
+      <div className="container flex h-16 items-center rounded-[20px] border border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Pizza className="h-6 w-6 text-primary" />
           <span className="font-headline text-xl font-bold">Pizza Zone</span>
