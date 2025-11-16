@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { PlaceHolderImages } from '@/lib/placeholder-images'
@@ -12,6 +14,8 @@ import {
 import { menuItems } from '@/lib/data'
 import { MenuItemCard } from '@/components/menu/menu-item-card'
 import { ArrowRight } from 'lucide-react'
+import Autoplay from 'embla-carousel-autoplay'
+import React from 'react'
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-pizza')
@@ -19,6 +23,10 @@ export default function Home() {
     (item) =>
       item.category === 'Pizza' &&
       ['margherita', 'pepperoni', 'veggie-deluxe', 'hawaiian'].includes(item.id)
+  )
+  
+  const plugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
   )
 
   return (
@@ -59,11 +67,14 @@ export default function Home() {
             Our Featured Pizzas
           </h2>
           <Carousel
+            plugins={[plugin.current]}
             opts={{
               align: 'start',
               loop: true,
             }}
             className="w-full"
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
           >
             <CarouselContent>
               {featuredPizzas.map((item) => (
