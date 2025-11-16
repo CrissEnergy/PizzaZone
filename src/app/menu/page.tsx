@@ -1,9 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { menuItems } from '@/lib/data'
 import { MenuItemCard } from '@/components/menu/menu-item-card'
-import { ScrollArea } from '@/components/ui/scroll-area'
 import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
 
@@ -21,11 +20,6 @@ export default function MenuPage() {
     'Drinks',
   ]
   const [selectedCategory, setSelectedCategory] = useState(categories[0])
-  const [isClient, setIsClient] = useState(false)
-
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
 
   const filteredItems = menuItems.filter(
     (item) => item.category === selectedCategory
@@ -43,33 +37,29 @@ export default function MenuPage() {
       </header>
 
       <div className="mb-8 flex justify-center">
-        {isClient && (
-          <ScrollArea className="w-full max-w-full whitespace-nowrap rounded-lg pb-4">
-            <div className="mx-auto flex w-max items-center justify-center rounded-full border bg-muted p-1">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={cn(
-                    'relative rounded-full px-3 py-1.5 text-sm sm:px-4 sm:py-2 font-medium text-muted-foreground transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
-                    {
-                      'text-primary-foreground': selectedCategory === category,
-                    }
-                  )}
-                >
-                  {selectedCategory === category && (
-                    <motion.span
-                      layoutId="category-highlight"
-                      className="absolute inset-0 z-0 rounded-full bg-primary"
-                      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                    />
-                  )}
-                  <span className="relative z-10">{category}</span>
-                </button>
-              ))}
-            </div>
-          </ScrollArea>
-        )}
+        <div className="flex flex-wrap justify-center gap-2 rounded-full border bg-muted p-2">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={cn(
+                'relative rounded-full px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
+                {
+                  'text-primary-foreground': selectedCategory === category,
+                }
+              )}
+            >
+              {selectedCategory === category && (
+                <motion.span
+                  layoutId="category-highlight"
+                  className="absolute inset-0 z-0 rounded-full bg-primary"
+                  transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                />
+              )}
+              <span className="relative z-10">{category}</span>
+            </button>
+          ))}
+        </div>
       </div>
 
       <div
