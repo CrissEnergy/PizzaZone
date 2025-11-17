@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Pizza, Menu } from 'lucide-react'
+import { Menu } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
@@ -16,6 +16,7 @@ import {
   SheetTitle,
 } from '@/components/ui/sheet'
 import { LiveSearch } from '../search/live-search'
+import Image from 'next/image'
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -30,12 +31,16 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full md:top-4 md:mx-auto md:w-[95%] max-w-7xl">
-      <div className="container flex h-16 items-center border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:rounded-[20px] md:border">
-        <Link href="/" className="mr-6 flex items-center space-x-2">
-          <Pizza className="h-6 w-6 text-primary" />
-          <span className="hidden font-headline text-xl font-bold sm:inline-block">
-            Pizza Zone
-          </span>
+      <div className="container flex h-20 items-center border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:rounded-[20px] md:border">
+        <Link href="/" className="mr-6 flex items-center">
+          <Image
+            src="https://lh3.googleusercontent.com/geougc-cs/AMBA38tBO7uZ4Uv4Au4YieFIwO7LbGTyD0NpXgL4u27vp7QCn3peI2OuEz92NjxmCRlKg3xRp4pTWdgUaJicrR4vRfw-4IyAeC8ZoryIg9wfc23O2GzaMM8wcJ3l4Gh6hl3HUe-QrRemQLGemVvI=w478-h269-p"
+            alt="Pizza Zone Logo"
+            width={120}
+            height={32}
+            className="h-10 w-auto md:h-12"
+            priority
+          />
         </Link>
         <nav className="hidden gap-6 md:flex">
           {navLinks.map((link) => (
@@ -73,10 +78,13 @@ export function Header() {
                   className="mr-6 flex items-center space-x-2"
                   onClick={() => setIsSheetOpen(false)}
                 >
-                  <Pizza className="h-6 w-6 text-primary" />
-                  <span className="font-headline text-xl font-bold">
-                    Pizza Zone
-                  </span>
+                  <Image
+                    src="https://lh3.googleusercontent.com/geougc-cs/AMBA38tBO7uZ4Uv4Au4YieFIwO7LbGTyD0NpXgL4u27vp7QCn3peI2OuEz92NjxmCRlKg3xRp4pTWdgUaJicrR4vRfw-4IyAeC8ZoryIg9wfc23O2GzaMM8wcJ3l4Gh6hl3HUe-QrRemQLGemVvI=w478-h269-p"
+                    alt="Pizza Zone Logo"
+                    width={120}
+                    height={32}
+                    className="h-10 w-auto"
+                  />
                 </Link>
 
                 <div className="mb-4">
