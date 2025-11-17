@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { Pizza, Facebook, Twitter, Instagram } from 'lucide-react'
+import { Facebook, Twitter, Instagram } from 'lucide-react'
+import Image from 'next/image'
 
 export function Footer() {
   return (
@@ -7,11 +8,14 @@ export function Footer() {
       <div className="container py-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div className="flex flex-col items-start gap-4">
-            <Link href="/" className="flex items-center space-x-2">
-              <Pizza className="h-6 w-6 text-primary" />
-              <span className="font-headline text-xl font-bold">
-                Pizza Zone
-              </span>
+            <Link href="/" className="flex items-center">
+              <Image
+                src="https://lh3.googleusercontent.com/geougc-cs/AMBA38tBO7uZ4Uv4Au4YieFIwO7LbGTyD0NpXgL4u27vp7QCn3peI2OuEz92NjxmCRlKg3xRp4pTWdgUaJicrR4vRfw-4IyAeC8ZoryIg9wfc23O2GzaMM8wcJ3l4Gh6hl3HUe-QrRemQLGemVvI=w478-h269-p"
+                alt="Pizza Zone Logo"
+                width={120}
+                height={32}
+                className="h-10 w-auto"
+              />
             </Link>
             <p className="text-sm text-muted-foreground">
               Pizza Zone & Restaurant, Ash. Mampong. <br />
