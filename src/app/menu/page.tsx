@@ -15,6 +15,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Label } from '@/components/ui/label'
+import { Card, CardContent } from '@/components/ui/card'
 
 export default function MenuPage() {
   const categories = [
@@ -101,32 +102,40 @@ export default function MenuPage() {
         </div>
       </div>
       
-      <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-        <div className="space-y-2 md:col-span-2">
-          <Label>Price Range: {formatCurrency(priceRange[0])} - {formatCurrency(priceRange[1])}</Label>
-          <Slider
-            min={0}
-            max={maxPrice}
-            step={1}
-            value={priceRange}
-            onValueChange={(value) => setPriceRange(value)}
-          />
-        </div>
-        <div className="space-y-2">
-          <Label>Sort By</Label>
-          <Select value={sortOption} onValueChange={setSortOption}>
-            <SelectTrigger>
-              <SelectValue placeholder="Sort by" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="name-asc">Name: A-Z</SelectItem>
-              <SelectItem value="name-desc">Name: Z-A</SelectItem>
-              <SelectItem value="price-asc">Price: Low to High</SelectItem>
-              <SelectItem value="price-desc">Price: High to Low</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-      </div>
+      <Card className='mb-8'>
+        <CardContent className='pt-6'>
+          <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-3">
+            <div className="space-y-4 md:col-span-2">
+              <div className='flex justify-between items-center'>
+                 <Label>Price Range</Label>
+                 <span className='text-sm font-medium'>{formatCurrency(priceRange[0])} - {formatCurrency(priceRange[1])}</span>
+              </div>
+              <Slider
+                min={0}
+                max={maxPrice}
+                step={1}
+                value={priceRange}
+                onValueChange={(value) => setPriceRange(value)}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label>Sort By</Label>
+              <Select value={sortOption} onValueChange={setSortOption}>
+                <SelectTrigger className='bg-background'>
+                  <SelectValue placeholder="Sort by" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="name-asc">Name: A-Z</SelectItem>
+                  <SelectItem value="name-desc">Name: Z-A</SelectItem>
+                  <SelectItem value="price-asc">Price: Low to High</SelectItem>
+                  <SelectItem value="price-desc">Price: High to Low</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
 
       <div
         className={cn(
