@@ -12,7 +12,7 @@ import { useCart } from '@/contexts/cart-context'
 import { useToast } from '@/hooks/use-toast'
 import { CustomPizzaDialog } from '@/components/menu/custom-pizza-dialog'
 import { MenuItemCard } from '@/components/menu/menu-item-card'
-import { ArrowLeft, Plus } from 'lucide-react'
+import { ArrowLeft, Plus, Star } from 'lucide-react'
 import {
   Carousel,
   CarouselContent,
@@ -21,13 +21,29 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import Autoplay from 'embla-carousel-autoplay'
-import React from 'react'
+import React, { useState } from 'react'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+
+const mockReviews = [
+    { id: 1, author: 'Ama Serwaa', rating: 5, comment: 'Absolutely delicious! The best pizza in town, hands down.' },
+    { id: 2, author: 'Kofi Mensah', rating: 4, comment: 'Great taste and fast delivery. The crust was perfect.' },
+    { id: 3, author: 'Adwoa Boateng', rating: 5, comment: 'My family loved it. We will definitely be ordering again soon.' },
+]
 
 export default function MenuItemDetailPage() {
   const params = useParams()
   const { id } = params
   const { addItem } = useCart()
   const { toast } = useToast()
+  
+  const [rating, setRating] = useState(0)
+  const [hoverRating, setHoverRating] = useState(0)
+  const [name, setName] = useState('')
+  const [comment, setComment] = useState('')
+
 
   const item = menuItems.find((item) => item.id === id)
 
@@ -61,6 +77,28 @@ export default function MenuItemDetailPage() {
     })
   }
 
+  const handleReviewSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if(rating === 0 || !name || !comment) {
+      toast({
+        variant: 'destructive',
+        title: 'Missing information',
+        description: 'Please provide a name, rating, and comment.'
+      })
+      return;
+    }
+    console.log({ name, rating, comment })
+    toast({
+        title: 'Review submitted',
+        description: 'Thank you for your feedback!'
+    })
+    setName('')
+    setComment('')
+    setRating(0)
+  }
+
+  const averageRating = mockReviews.reduce((acc, review) => acc + review.rating, 0) / mockReviews.length;
+
   return (
     <div className="container py-12 md:py-16">
       <div className="mb-8">
@@ -87,6 +125,19 @@ export default function MenuItemDetailPage() {
           )}
         </div>
         <div className="flex flex-col justify-center">
+           <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                      <Star
+                      key={star}
+                      className={`h-5 w-5 ${
+                          star <= Math.round(averageRating) ? 'text-primary fill-primary' : 'text-muted-foreground'
+                      }`}
+                      />
+                  ))}
+              </div>
+              <span className='text-muted-foreground'>({mockReviews.length} reviews)</span>
+          </div>
           <h1 className="font-headline text-4xl font-bold">{item.name}</h1>
           <p className="mt-4 text-lg text-muted-foreground">
             {item.description}
@@ -103,6 +154,80 @@ export default function MenuItemDetailPage() {
               </Button>
             )}
           </div>
+        </div>
+      </div>
+
+      <div className="mt-16">
+        <Separator />
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 mt-12">
+            <div>
+                 <h2 className="mb-6 font-headline text-3xl font-bold">
+                    Reviews
+                </h2>
+                <div className="space-y-6">
+                    {mockReviews.map(review => (
+                        <Card key={review.id}>
+                            <CardHeader className='pb-2'>
+                                <div className="flex items-center justify-between">
+                                    <h3 className='font-semibold'>{review.author}</h3>
+                                    <div className="flex items-center">
+                                        {[1, 2, 3, 4, 5].map((star) => (
+                                            <Star
+                                            key={star}
+                                            className={`h-4 w-4 ${
+                                                star <= review.rating ? 'text-primary fill-primary' : 'text-muted-foreground'
+                                            }`}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            </CardHeader>
+                            <CardContent>
+                                <p className='text-muted-foreground'>{review.comment}</p>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
+            </div>
+            <div>
+                 <h2 className="mb-6 font-headline text-3xl font-bold">
+                    Leave a Review
+                </h2>
+                <Card>
+                    <CardContent className="p-6">
+                        <form onSubmit={handleReviewSubmit} className='space-y-4'>
+                            <Input 
+                                placeholder='Your Name' 
+                                value={name} 
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                             <div className="flex items-center gap-2">
+                                <span className='text-sm text-muted-foreground'>Your Rating:</span>
+                                <div className="flex items-center">
+                                    {[1, 2, 3, 4, 5].map((star) => (
+                                        <Star
+                                        key={star}
+                                        className={`h-5 w-5 cursor-pointer ${
+                                            star <= (hoverRating || rating) ? 'text-primary fill-primary' : 'text-muted-foreground'
+                                        }`}
+                                        onClick={() => setRating(star)}
+                                        onMouseEnter={() => setHoverRating(star)}
+                                        onMouseLeave={() => setHoverRating(0)}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                            <Textarea 
+                                placeholder='Share your thoughts...' 
+                                value={comment}
+                                onChange={(e) => setComment(e.target.value)}
+                                rows={4}
+                            />
+                            <Button type='submit'>Submit Review</Button>
+                        </form>
+                    </CardContent>
+                </Card>
+            </div>
         </div>
       </div>
 
