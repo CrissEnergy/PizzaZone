@@ -1,7 +1,7 @@
 
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { menuItems } from '@/lib/data'
 import { MenuItemCard } from '@/components/menu/menu-item-card'
 import { cn, formatCurrency } from '@/lib/utils'
@@ -31,9 +31,15 @@ export default function MenuPage() {
   ]
   const [selectedCategory, setSelectedCategory] = useState(categories[0])
   
-  const maxPrice = useMemo(() => Math.ceil(Math.max(...menuItems.map(item => item.price))), []);
+  const maxPrice = 1000;
   const [priceRange, setPriceRange] = useState([0, maxPrice])
   const [sortOption, setSortOption] = useState('name-asc')
+
+  useEffect(() => {
+    const categoryMaxPrice = Math.ceil(Math.max(...menuItems.filter(item => item.category === selectedCategory).map(item => item.price), 0));
+    setPriceRange([0, Math.min(categoryMaxPrice, maxPrice) > 0 ? Math.min(categoryMaxPrice, maxPrice) : maxPrice]);
+  }, [selectedCategory])
+
 
   const filteredItems = useMemo(() => {
     let items = menuItems
