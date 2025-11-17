@@ -112,11 +112,15 @@ export default function ContactPage() {
             <CardContent className="space-y-4 text-muted-foreground">
               <div className="flex items-center gap-4">
                 <MapPin className="h-5 w-5 text-primary" />
-                <span>Pizza Zone & Restaurant, Ash. Mampong, Ghana</span>
+                <span>University Rd Near Old Quality Hospital Ash. Mampong</span>
+              </div>
+               <div className="flex items-center gap-4">
+                <MapPin className="h-5 w-5 text-primary" />
+                <span>3H9X+PJ Mampong</span>
               </div>
               <div className="flex items-center gap-4">
                 <Phone className="h-5 w-5 text-primary" />
-                <span>+233 12 345 6789</span>
+                <span>059 991 5537</span>
               </div>
               <div className="flex items-center gap-4">
                 <Mail className="h-5 w-5 text-primary" />
@@ -130,12 +134,8 @@ export default function ContactPage() {
             </CardHeader>
             <CardContent className="space-y-2 text-muted-foreground">
               <div className="flex items-center justify-between">
-                <span>Monday - Friday</span>
-                <span className='font-medium text-foreground'>10:00 AM - 10:00 PM</span>
-              </div>
-               <div className="flex items-center justify-between">
-                <span>Saturday - Sunday</span>
-                <span className='font-medium text-foreground'>11:00 AM - 11:00 PM</span>
+                <span>Monday - Sunday</span>
+                <span className='font-medium text-foreground'>9:00 AM - 11:00 PM</span>
               </div>
             </CardContent>
           </Card>
