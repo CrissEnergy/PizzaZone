@@ -40,9 +40,9 @@ export function Footer() {
             <div>
               <h3 className="font-headline font-semibold">Contact</h3>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                <li>+233 12 345 6789</li>
+                <li>059 991 5537</li>
                 <li>contact@pizzazone.com</li>
-                <li>Mampong, Ashanti, Ghana</li>
+                <li>University Rd, Mampong</li>
               </ul>
             </div>
             <div>
