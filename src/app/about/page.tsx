@@ -16,7 +16,7 @@ export default function AboutPage() {
       </header>
 
       {aboutImage && (
-        <div className="relative mb-12 h-96 w-full overflow-hidden rounded-lg">
+        <div className="relative mx-auto mb-12 h-96 max-w-4xl overflow-hidden rounded-lg">
           <Image
             src={aboutImage.imageUrl}
             alt={aboutImage.description}
