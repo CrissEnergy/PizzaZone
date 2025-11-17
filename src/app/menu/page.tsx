@@ -1,10 +1,20 @@
+
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { menuItems } from '@/lib/data'
 import { MenuItemCard } from '@/components/menu/menu-item-card'
-import { cn } from '@/lib/utils'
+import { cn, formatCurrency } from '@/lib/utils'
 import { motion } from 'framer-motion'
+import { Slider } from '@/components/ui/slider'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import { Label } from '@/components/ui/label'
 
 export default function MenuPage() {
   const categories = [
@@ -20,10 +30,33 @@ export default function MenuPage() {
     'Drinks',
   ]
   const [selectedCategory, setSelectedCategory] = useState(categories[0])
+  
+  const maxPrice = useMemo(() => Math.ceil(Math.max(...menuItems.map(item => item.price))), []);
+  const [priceRange, setPriceRange] = useState([0, maxPrice])
+  const [sortOption, setSortOption] = useState('name-asc')
 
-  const filteredItems = menuItems.filter(
-    (item) => item.category === selectedCategory
-  )
+  const filteredItems = useMemo(() => {
+    let items = menuItems
+      .filter((item) => item.category === selectedCategory)
+      .filter((item) => item.price >= priceRange[0] && item.price <= priceRange[1])
+
+    switch (sortOption) {
+      case 'price-asc':
+        items.sort((a, b) => a.price - b.price)
+        break
+      case 'price-desc':
+        items.sort((a, b) => b.price - a.price)
+        break
+      case 'name-asc':
+        items.sort((a, b) => a.name.localeCompare(b.name))
+        break
+      case 'name-desc':
+        items.sort((a, b) => b.name.localeCompare(a.name))
+        break
+    }
+
+    return items
+  }, [selectedCategory, priceRange, sortOption])
 
   return (
     <div className="container py-8">
@@ -59,6 +92,33 @@ export default function MenuPage() {
               <span className="relative z-10">{category}</span>
             </button>
           ))}
+        </div>
+      </div>
+      
+      <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="space-y-2 md:col-span-2">
+          <Label>Price Range: {formatCurrency(priceRange[0])} - {formatCurrency(priceRange[1])}</Label>
+          <Slider
+            min={0}
+            max={maxPrice}
+            step={1}
+            value={priceRange}
+            onValueChange={(value) => setPriceRange(value)}
+          />
+        </div>
+        <div className="space-y-2">
+          <Label>Sort By</Label>
+          <Select value={sortOption} onValueChange={setSortOption}>
+            <SelectTrigger>
+              <SelectValue placeholder="Sort by" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="name-asc">Name: A-Z</SelectItem>
+              <SelectItem value="name-desc">Name: Z-A</SelectItem>
+              <SelectItem value="price-asc">Price: Low to High</SelectItem>
+              <SelectItem value="price-desc">Price: High to Low</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
       </div>
 
