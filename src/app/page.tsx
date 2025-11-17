@@ -18,7 +18,8 @@ import Autoplay from 'embla-carousel-autoplay'
 import React from 'react'
 import { cn } from '@/lib/utils'
 import useEmblaCarousel from 'embla-carousel-react'
-import EmblaCarouselFade from 'embla-carousel-fade'
+import { EmblaCarouselType } from 'embla-carousel'
+
 
 const heroImages = [
   {
@@ -57,15 +58,28 @@ export default function Home() {
     Autoplay({ delay: 2000, stopOnInteraction: true })
   )
 
-  const [emblaRef] = useEmblaCarousel({ loop: true, duration: 50 }, [
-    Autoplay({ delay: 4000, stopOnInteraction: false }),
-    EmblaCarouselFade(),
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 5000, stopOnInteraction: false }),
   ])
+  
+  const [activeIndex, setActiveIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = (api: EmblaCarouselType) => {
+      setActiveIndex(api.selectedScrollSnap());
+    };
+    emblaApi.on('select', onSelect);
+    return () => {
+      emblaApi.off('select', onSelect);
+    };
+  }, [emblaApi]);
+
 
   return (
     <div className="flex flex-col gap-16 pb-16 md:gap-24">
       {/* Hero Section */}
-      <section className="relative h-[85vh] w-full pt-16 md:h-[80vh] md:pt-24">
+      <section className="relative h-[85vh] w-full pt-16 md:h-[95vh] md:pt-24">
         <div className="overflow-hidden absolute inset-0" ref={emblaRef}>
             <div className="flex h-full">
                 {heroImages.map((image, index) => (
@@ -74,7 +88,10 @@ export default function Home() {
                             src={image.src}
                             alt={image.alt}
                             fill
-                            className="object-cover"
+                            className={cn(
+                              'object-cover transition-transform duration-[6000ms] ease-linear',
+                              activeIndex === index ? 'scale-110' : 'scale-100'
+                            )}
                             priority={index === 0}
                         />
                     </div>
