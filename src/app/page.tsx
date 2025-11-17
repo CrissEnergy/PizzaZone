@@ -79,7 +79,7 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-16 pb-16 md:gap-24">
       {/* Hero Section */}
-      <section className="relative h-[85vh] w-full pt-16 md:h-screen md:pt-24">
+      <section className="relative flex min-h-screen w-full items-center justify-center py-24">
         <div className="overflow-hidden absolute inset-0" ref={emblaRef}>
             <div className="flex h-full">
                 {heroImages.map((image, index) => (
@@ -89,7 +89,7 @@ export default function Home() {
                             alt={image.alt}
                             fill
                             className={cn(
-                              'object-cover animate-zoom-in',
+                              'object-cover animate-zoom-in-out',
                             )}
                             priority={index === 0}
                         />
@@ -99,7 +99,7 @@ export default function Home() {
         </div>
 
         <div className="absolute inset-0 bg-black/60" />
-        <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center gap-6 px-4 text-center text-white">
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center justify-center gap-6 px-4 text-center text-white">
           <h1 className={cn("font-headline text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl", "holographic-text")}>
             Flavor for Every Moment
           </h1>
