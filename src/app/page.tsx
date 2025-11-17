@@ -79,7 +79,7 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-16 pb-16 md:gap-24">
       {/* Hero Section */}
-      <section className="relative h-[85vh] w-full pt-16 md:h-[95vh] md:pt-24">
+      <section className="relative h-[85vh] w-full pt-16 md:h-screen md:pt-24">
         <div className="overflow-hidden absolute inset-0" ref={emblaRef}>
             <div className="flex h-full">
                 {heroImages.map((image, index) => (
@@ -89,8 +89,7 @@ export default function Home() {
                             alt={image.alt}
                             fill
                             className={cn(
-                              'object-cover transition-transform duration-[6000ms] ease-linear',
-                              activeIndex === index ? 'scale-110' : 'scale-100'
+                              'object-cover animate-zoom-in',
                             )}
                             priority={index === 0}
                         />
