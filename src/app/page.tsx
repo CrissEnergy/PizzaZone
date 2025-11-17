@@ -123,7 +123,7 @@ export default function Home() {
               alt="Featured Items separator"
               width={478}
               height={269}
-              className="h-auto"
+              className="h-auto mix-blend-multiply dark:mix-blend-lighten"
             />
           </div>
           <h2 className="mb-8 text-center font-headline text-3xl font-bold tracking-tight md:text-4xl">
