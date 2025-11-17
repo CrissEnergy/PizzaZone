@@ -65,7 +65,7 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-16 pb-16 md:gap-24">
       {/* Hero Section */}
-      <section className="relative h-[70vh] w-full pt-16 md:h-[60vh] md:pt-24">
+      <section className="relative h-[80vh] w-full pt-16 md:h-[75vh] md:pt-24">
         <div className="overflow-hidden absolute inset-0" ref={emblaRef}>
             <div className="flex h-full">
                 {heroImages.map((image, index) => (
