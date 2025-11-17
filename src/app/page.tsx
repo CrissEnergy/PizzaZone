@@ -79,7 +79,7 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-16 pb-16 md:gap-24">
       {/* Hero Section */}
-      <section className="relative flex min-h-screen w-full items-center justify-center py-24">
+      <section className="relative flex h-[70vh] w-full items-center justify-center py-24">
         <div className="overflow-hidden absolute inset-0" ref={emblaRef}>
             <div className="flex h-full">
                 {heroImages.map((image, index) => (
