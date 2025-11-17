@@ -30,8 +30,8 @@ export function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full md:top-4 md:mx-auto md:w-[95%] max-w-7xl">
-      <div className="container flex h-20 items-center border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:rounded-[20px] md:border">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-14 items-center">
         <Link href="/" className="mr-6 flex items-center">
           <Image
             src="https://lh3.googleusercontent.com/geougc-cs/AMBA38tBO7uZ4Uv4Au4YieFIwO7LbGTyD0NpXgL4u27vp7QCn3peI2OuEz92NjxmCRlKg3xRp4pTWdgUaJicrR4vRfw-4IyAeC8ZoryIg9wfc23O2GzaMM8wcJ3l4Gh6hl3HUe-QrRemQLGemVvI=w478-h269-p"
