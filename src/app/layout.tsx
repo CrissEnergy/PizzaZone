@@ -6,6 +6,7 @@ import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import { Toaster } from '@/components/ui/toaster'
 import { CartProvider } from '@/contexts/cart-context'
+import { SplashScreen } from '@/components/splash-screen'
 
 const fontBody = Inter({ subsets: ['latin'], variable: '--font-body' })
 const fontHeadline = Poppins({
@@ -39,6 +40,7 @@ export default function RootLayout({
         )}
       >
         <CartProvider>
+          <SplashScreen />
           <div className="relative flex min-h-dvh flex-col overflow-x-hidden">
             <div className="absolute inset-0 -z-10">
               <div className="absolute top-0 left-0 h-96 w-96 rounded-full bg-primary/10 blur-[120px]" />
