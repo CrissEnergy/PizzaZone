@@ -19,6 +19,7 @@ import React from 'react'
 import { cn } from '@/lib/utils'
 import useEmblaCarousel from 'embla-carousel-react'
 import { EmblaCarouselType } from 'embla-carousel'
+import { TypingAnimation } from '@/components/typing-animation'
 
 
 const heroImages = [
@@ -102,7 +103,7 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent [mask-image:linear-gradient(to_bottom,transparent,black_20%)]" />
         <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center justify-center gap-6 px-4 text-center text-white">
           <h1 className={cn("font-headline text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl", "holographic-text")}>
-            Flavor for Every Moment
+            <TypingAnimation text="Flavor for Every Moment" />
           </h1>
           <p className="max-w-2xl font-body text-base text-neutral-200 sm:text-lg md:text-xl">
             From sizzling pizzas to hearty local dishes, discover authentic flavors and fresh ingredients. Your perfect meal is just a click away.
