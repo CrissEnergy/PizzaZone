@@ -108,10 +108,47 @@
     animation: holographic-move 4s linear infinite;
   }
 
+  .holographic-image {
+    position: relative;
+    overflow: hidden;
+  }
+  .holographic-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      110deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    animation: holographic-shine 3s infinite;
+  }
+  .dark .holographic-image::before {
+    background: linear-gradient(
+      110deg,
+      transparent,
+      rgba(255, 255, 255, 0.15),
+      transparent
+    );
+  }
+
   @keyframes holographic-move {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+  }
+
+  @keyframes holographic-shine {
+    0% {
+      left: -100%;
+    }
+    50%, 100% {
+      left: 100%;
+    }
   }
 }
 

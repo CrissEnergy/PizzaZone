@@ -118,7 +118,7 @@ export default function Home() {
       {/* Featured Items Section */}
       <section className="w-full">
         <div className="container px-4 sm:px-6">
-          <div className="mb-4 flex justify-center">
+          <div className="mb-4 flex justify-center holographic-image">
             <Image
               src="https://lh3.googleusercontent.com/geougc-cs/AMBA38uOmXRmeig7oxlUmMWZfyqAJNn_3GCEC6wixEM1aoyp9cId70HxwbpzKVpa8S_jKfEmp1duI2idx2xFsO3mvzRzZazS3oPVw4UC76qulOe6rAJQC8vZN4_7bXOCDLuq1PQdvK9PjsOYgYNO=w478-h269-p"
               alt="Featured Items separator"
