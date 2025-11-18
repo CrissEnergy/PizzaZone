@@ -17,6 +17,7 @@ import {
 } from '@/components/ui/sheet'
 import { LiveSearch } from '../search/live-search'
 import Image from 'next/image'
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -71,7 +72,9 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left">
-              <SheetTitle>Menu</SheetTitle>
+              <SheetTitle>
+                <VisuallyHidden>Main Menu</VisuallyHidden>
+              </SheetTitle>
               <div className="flex flex-col gap-8 pt-8">
                 <Link
                   href="/"
