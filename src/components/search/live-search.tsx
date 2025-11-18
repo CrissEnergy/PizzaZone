@@ -28,13 +28,28 @@ export function LiveSearch() {
   useEffect(() => {
     if (debouncedQuery) {
       const lowercasedQuery = debouncedQuery.toLowerCase()
-      const filteredItems = menuItems.filter(
-        (item) =>
+      const startsWith = menuItems.filter((item) => {
+        const nameMatch = item.name.toLowerCase().startsWith(lowercasedQuery);
+        const categoryMatch = item.category.toLowerCase().startsWith(lowercasedQuery);
+        
+        const descriptionWords = item.description.toLowerCase().split(' ');
+        const descriptionMatch = descriptionWords.some(word => word.startsWith(lowercasedQuery));
+
+        return nameMatch || categoryMatch || descriptionMatch;
+      });
+
+      const includes = menuItems.filter((item) => {
+        const isInStartsWith = startsWith.some(swItem => swItem.id === item.id);
+        if (isInStartsWith) return false;
+
+        return (
           item.name.toLowerCase().includes(lowercasedQuery) ||
           item.description.toLowerCase().includes(lowercasedQuery) ||
           item.category.toLowerCase().includes(lowercasedQuery)
-      )
-      setResults(filteredItems)
+        )
+      });
+      
+      setResults([...startsWith, ...includes])
       setIsOpen(true)
     } else {
       setResults([])
