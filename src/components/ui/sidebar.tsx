@@ -4,6 +4,7 @@ import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { VariantProps, cva } from "class-variance-authority"
 import { PanelLeft } from "lucide-react"
+import { motion, AnimatePresence } from 'framer-motion'
 
 import { useIsMobile } from "@/hooks/use-mobile"
 import { cn } from "@/lib/utils"
@@ -195,25 +196,35 @@ const Sidebar = React.forwardRef<
 
     if (isMobile) {
       return (
-        <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
-          <SheetContent
-            data-sidebar="sidebar"
-            data-mobile="true"
-            className="w-[--sidebar-width] bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
-            style={
-              {
-                "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
-              } as React.CSSProperties
-            }
-            side={side}
-          >
-            <SheetTitle>
-                <VisuallyHidden>Sidebar</VisuallyHidden>
-            </SheetTitle>
-            <div className="flex h-full w-full flex-col">{children}</div>
-          </SheetContent>
-        </Sheet>
-      )
+        <AnimatePresence>
+          {openMobile && (
+            <>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="fixed inset-0 z-40 bg-black/50"
+                onClick={() => setOpenMobile(false)}
+              />
+              <motion.div
+                initial={{ x: side === 'left' ? '-100%' : '100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: side === 'left' ? '-100%' : '100%' }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className={cn("fixed inset-y-0 z-50", side === 'left' ? 'left-0' : 'right-0')}
+                style={{
+                  width: SIDEBAR_WIDTH_MOBILE
+                }}
+              >
+                  <div className="flex h-full w-full flex-col bg-sidebar text-sidebar-foreground p-4">
+                    {children}
+                  </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
+      );
     }
 
     return (
