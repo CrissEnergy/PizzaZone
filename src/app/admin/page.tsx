@@ -1,4 +1,5 @@
 'use client'
+import { useState, useEffect } from 'react'
 
 import {
   Card,
@@ -19,22 +20,31 @@ import {
   YAxis,
 } from 'recharts'
 
-const salesData = [
-  { name: 'Jan', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'Feb', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'Mar', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'Apr', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'May', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'Jun', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'Jul', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'Aug', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'Sep', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'Oct', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'Nov', total: Math.floor(Math.random() * 5000) + 1000 },
-  { name: 'Dec', total: Math.floor(Math.random() * 5000) + 1000 },
+const initialSalesData = [
+  { name: 'Jan', total: 0 },
+  { name: 'Feb', total: 0 },
+  { name: 'Mar', total: 0 },
+  { name: 'Apr', total: 0 },
+  { name: 'May', total: 0 },
+  { name: 'Jun', total: 0 },
+  { name: 'Jul', total: 0 },
+  { name: 'Aug', total: 0 },
+  { name: 'Sep', total: 0 },
+  { name: 'Oct', total: 0 },
+  { name: 'Nov', total: 0 },
+  { name: 'Dec', total: 0 },
 ]
 
 export default function AdminDashboardPage() {
+    const [salesData, setSalesData] = useState(initialSalesData);
+
+    useEffect(() => {
+        setSalesData(initialSalesData.map(month => ({
+            ...month,
+            total: Math.floor(Math.random() * 5000) + 1000
+        })));
+    }, []);
+
   return (
     <div className="space-y-6">
       <h1 className="font-headline text-3xl font-bold">Dashboard</h1>

@@ -20,6 +20,7 @@ import { cn } from '@/lib/utils'
 import useEmblaCarousel from 'embla-carousel-react'
 import { EmblaCarouselType } from 'embla-carousel'
 import { TypingAnimation } from '@/components/typing-animation'
+import Fade from 'embla-carousel-fade'
 
 
 const heroImages = [
@@ -60,7 +61,8 @@ export default function Home() {
   )
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 5000, stopOnInteraction: false }),
+    Autoplay({ delay: 4000, stopOnInteraction: false }),
+    Fade(),
   ])
   
   const [activeIndex, setActiveIndex] = React.useState(0);
@@ -90,7 +92,8 @@ export default function Home() {
                             alt={image.alt}
                             fill
                             className={cn(
-                              'object-cover animate-zoom-in-out',
+                              'object-cover',
+                              activeIndex === index && 'animate-zoom-in'
                             )}
                             priority={index === 0}
                         />
@@ -100,7 +103,7 @@ export default function Home() {
         </div>
 
         <div className="absolute inset-0 bg-black/60" />
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent [mask-image:linear-gradient(to_bottom,transparent,black_20%)]" />
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent" />
         <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center justify-center gap-6 px-4 text-center text-white">
           <h1 className={cn("font-headline text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl", "holographic-text")}>
             <TypingAnimation text="Flavor for Every Moment" />
