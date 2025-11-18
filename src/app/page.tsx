@@ -99,6 +99,7 @@ export default function Home() {
         </div>
 
         <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent [mask-image:linear-gradient(to_bottom,transparent,black_20%)]" />
         <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center justify-center gap-6 px-4 text-center text-white">
           <h1 className={cn("font-headline text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl", "holographic-text")}>
             Flavor for Every Moment
