@@ -19,6 +19,7 @@ import { Card, CardContent } from '@/components/ui/card'
 
 export default function MenuPage() {
   const categories = [
+    'All',
     'Pizza',
     'Breakfast',
     'Jollof Rice',
@@ -37,14 +38,18 @@ export default function MenuPage() {
   const [sortOption, setSortOption] = useState('name-asc')
 
   useEffect(() => {
-    const categoryMaxPrice = Math.ceil(Math.max(...menuItems.filter(item => item.category === selectedCategory).map(item => item.price), 0));
+    const itemsForCategory = selectedCategory === 'All' 
+        ? menuItems 
+        : menuItems.filter(item => item.category === selectedCategory);
+    
+    const categoryMaxPrice = Math.ceil(Math.max(...itemsForCategory.map(item => item.price), 0));
     setPriceRange([0, Math.min(categoryMaxPrice, maxPrice) > 0 ? Math.min(categoryMaxPrice, maxPrice) : maxPrice]);
   }, [selectedCategory])
 
 
   const filteredItems = useMemo(() => {
     let items = menuItems
-      .filter((item) => item.category === selectedCategory)
+      .filter((item) => selectedCategory === 'All' || item.category === selectedCategory)
       .filter((item) => item.price >= priceRange[0] && item.price <= priceRange[1])
 
     switch (sortOption) {
