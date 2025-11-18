@@ -1,12 +1,6 @@
 'use client'
 
-import {
-  Home,
-  Package,
-  ShoppingCart,
-  PanelLeft,
-  Settings,
-} from 'lucide-react'
+import { Home, Package, ShoppingCart, Settings } from 'lucide-react'
 import {
   Sidebar,
   SidebarContent,
@@ -21,7 +15,6 @@ import {
 } from '@/components/ui/sidebar'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
@@ -32,6 +25,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import Image from 'next/image'
 
 const adminNavLinks = [
   { href: '/admin', label: 'Dashboard', icon: Home },
@@ -49,13 +43,25 @@ export default function AdminLayout({
   return (
     <SidebarProvider>
       <Sidebar side="left" collapsible="icon">
-        <SidebarHeader className="h-16 items-center border-b justify-between flex px-2">
-          <Button variant="ghost" className='w-full justify-start'>
-            <span className="font-headline text-lg font-bold text-primary group-data-[collapsible=icon]:hidden">
-              Pizza Zone Admin
-            </span>
-          </Button>
-          <SidebarTrigger className="hidden md:flex" />
+        <SidebarHeader className="h-16 items-center border-b justify-center flex p-2">
+          <Link href="/" className="flex items-center group-data-[collapsible=icon]:justify-center">
+            <Image
+              src="https://lh3.googleusercontent.com/geougc-cs/AMBA38tBO7uZ4Uv4Au4YieFIwO7LbGTyD0NpXgL4u27vp7QCn3peI2OuEz92NjxmCRlKg3xRp4pTWdgUaJicrR4vRfw-4IyAeC8ZoryIg9wfc23O2GzaMM8wcJ3l4Gh6hl3HUe-QrRemQLGemVvI=w478-h269-p"
+              alt="Pizza Zone Logo"
+              width={120}
+              height={32}
+              className="h-10 w-auto group-data-[collapsible=icon]:hidden"
+              priority
+            />
+             <Image
+              src="https://lh3.googleusercontent.com/geougc-cs/AMBA38tBO7uZ4Uv4Au4YieFIwO7LbGTyD0NpXgL4u27vp7QCn3peI2OuEz92NjxmCRlKg3xRp4pTWdgUaJicrR4vRfw-4IyAeC8ZoryIg9wfc23O2GzaMM8wcJ3l4Gh6hl3HUe-QrRemQLGemVvI=w478-h269-p"
+              alt="Pizza Zone Logo"
+              width={40}
+              height={40}
+              className="h-8 w-auto hidden group-data-[collapsible=icon]:block"
+              priority
+            />
+          </Link>
         </SidebarHeader>
         <SidebarContent className="p-2">
           <SidebarMenu>
